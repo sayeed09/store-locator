@@ -2,7 +2,7 @@ import "./App.css";
 import { useEffect } from "react";
 import { Loader } from "google-maps";
 import { locations } from "./locations";
-let google, map;
+let google, map, infoWindow;
 function App() {
   useEffect(() => {
     initMap();
@@ -37,18 +37,23 @@ function App() {
     // show store info when marker is clicked
     marker.addListener("click", function () {
       showStoreInfo(storeInfo);
+      infoWindow.open(map, marker);
     });
   }
 
   // show store info in text box
   function showStoreInfo(storeInfo) {
-    var info_div = document.getElementById("info_div");
-    info_div.innerHTML =
-      "Store name: " + storeInfo.name + "<br>Hours: " + storeInfo.hours;
+    var infoContent =
+      "Store name: " + storeInfo.Name + "<br>Address: " + storeInfo.Address;
+
+    infoWindow = new google.maps.InfoWindow({
+      content: infoContent,
+    });
   }
   return (
     <div className="App">
       <div id="map"></div>
+      <div id="info_div"></div>
     </div>
   );
 }
