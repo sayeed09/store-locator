@@ -2,7 +2,7 @@
   "name": "store-locator-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sayeed09.github.io",
+  "homepage": ".",
   "dependencies": {
     "@babel/runtime": "^7.17.8",
     "@testing-library/jest-dom": "^5.16.3",
