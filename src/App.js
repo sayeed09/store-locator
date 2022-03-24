@@ -1,21 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useEffect } from "react";
-import { Loader, LoaderOptions } from "google-maps";
+import { Loader } from "google-maps";
 import { locations } from "./locations";
-var stores = [
-  {
-    name: "Store 1",
-    location: { lat: 9.1748422, lng: 76.5013352 },
-    hours: "8AM to 10PM",
-  },
-  {
-    name: "Store 2",
-    location: { lat: 10.6105871, lng: 76.5030048 },
-    hours: "9AM to 9PM",
-  },
-];
-var google, map;
+let google, map;
 function App() {
   useEffect(() => {
     initMap();
@@ -33,12 +20,6 @@ function App() {
     map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: 21.1458, lng: 79.0882 },
       zoom: 5,
-    });
-
-    var marker = new google.maps.Marker({
-      map: map,
-      position: { lat: 21.1458, lng: 79.0882 },
-      title: "Hello World!",
     });
     locations.forEach(function (store) {
       markStore(store);
