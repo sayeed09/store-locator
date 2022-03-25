@@ -27,11 +27,14 @@ function App() {
   };
   function markStore(storeInfo) {
     let position = { lat: storeInfo.Latitude, lng: storeInfo.Longitude };
+    let color = storeInfo.icon ? storeInfo.icon : "red";
+    let icon = `http://maps.google.com/mapfiles/ms/icons/${color}-dot.png`;
     // Create a marker and set its position.
     var marker = new google.maps.Marker({
       map: map,
       position: position,
       title: storeInfo.name,
+      icon: storeInfo.icon?icon:null,
     });
 
     // show store info when marker is clicked
@@ -44,7 +47,7 @@ function App() {
   // show store info in text box
   function showStoreInfo(storeInfo) {
     var infoContent =
-      "Store name: " + storeInfo.Name + "<br>Address: " + storeInfo.Address;
+      "Name: " + storeInfo.Name + "<br>Address: " + storeInfo.Address;
 
     infoWindow = new google.maps.InfoWindow({
       content: infoContent,
