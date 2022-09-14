@@ -26,7 +26,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-        deploy-prod:
           if: (github.event.inputs.deploy_environment == 'dev') && (github.ref == 'refs/heads/develop')
           name: Run a one-line script
           run: echo Hello, world!
