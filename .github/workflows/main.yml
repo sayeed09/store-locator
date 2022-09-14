@@ -8,10 +8,15 @@ on:
   workflow_dispatch:
     inputs:
       deploy_environment:
-        description: Environment (dev or prod or preprod)
+        description: Select Environment
         required: true
-        type: string
-      app_dir:
+        type: choice
+        description: Who to greet
+        options: 
+        - Production
+        - Preprod
+        - Develop
+      service:
         description: name of the service to deploy
         required: true
         type: string
