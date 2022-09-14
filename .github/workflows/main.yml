@@ -24,26 +24,16 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  deploy-preprod:
-    # The type of runner that the job will run on
+  preprod-deploy:
     if: (github.event.inputs.deploy_environment == 'Preprod') && (github.ref == 'refs/heads/preprod')
     runs-on: ubuntu-latest
-
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-        runs-on: ubuntu-latest
+      - run: echo Hello, from Preprod!
 
-      - name: Run a one-line script
-        run: echo Hello, from Preprd!
-
-  deploy-dev:
-    # The type of runner that the job will run on
-    # Steps represent a sequence of tasks that will be executed as part of the job
+  develop-deploy:
+    if: (github.event.inputs.deploy_environment == 'Develop') && (github.ref == 'refs/heads/develop')
     runs-on: ubuntu-latest
-
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: Run a one-line script
-        run: echo Hello, from Develop!
+      - run: echo Hello, from Develop!
