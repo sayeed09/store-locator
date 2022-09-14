@@ -11,9 +11,8 @@ on:
         description: name of the service to deploy
         required: true
         type: string
-  
+
 jobs:
-  runs-on: ubuntu-latest
   deploy-prod:
-      if: (github.event.inputs.deploy_environment == 'dev') && (github.ref == 'refs/heads/develop')
-      run: echo "Hello"
+    if: (github.event.inputs.deploy_environment == 'dev') && (github.ref == 'refs/heads/develop')
+    run: echo "Hello"
