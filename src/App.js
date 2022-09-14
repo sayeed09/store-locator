@@ -35,7 +35,7 @@ function App() {
       map: map,
       position: position,
       title: storeInfo.name,
-      icon: storeInfo.icon?icon:null,
+      icon: storeInfo.icon ? icon : null,
     });
 
     // show store info when marker is clicked
