@@ -30,9 +30,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        if: (github.event.inputs.deploy_environment == 'Preprod') && (github.ref == 'refs/heads/preprod')
       - uses: actions/checkout@v3
       - name: Run a one-line script
-        if: (github.event.inputs.deploy_environment == 'Preprod') && (github.ref == 'refs/heads/preprod')
         run: echo Hello, world!
 
   deploy-dev:
@@ -41,7 +41,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        if: (github.event.inputs.deploy_environment == 'Develop') && (github.ref == 'refs/heads/develop')
       - uses: actions/checkout@v3
       - name: Run a one-line script
-        if: (github.event.inputs.deploy_environment == 'Develop') && (github.ref == 'refs/heads/develop')
         run: echo Hello, world!
