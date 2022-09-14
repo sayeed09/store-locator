@@ -34,3 +34,15 @@ jobs:
       - name: Run a one-line script
         if: (github.event.inputs.deploy_environment == 'Preprod') && (github.ref == 'refs/heads/preprod')
         run: echo Hello, world!
+
+
+deploy-dev:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        if: (github.event.inputs.deploy_environment == 'Develop') && (github.ref == 'refs/heads/develop')
+        run: echo Hello, world!
