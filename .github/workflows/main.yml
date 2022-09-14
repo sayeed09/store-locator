@@ -26,10 +26,12 @@ on:
 jobs:
   deploy-preprod:
     # The type of runner that the job will run on
+    if: (github.event.inputs.deploy_environment == 'Preprod') && (github.ref == 'refs/heads/preprod')
+    runs-on: ubuntu-latest
+
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-        if: (github.event.inputs.deploy_environment == 'Preprod') && (github.ref == 'refs/heads/preprod')
         runs-on: ubuntu-latest
 
       - name: Run a one-line script
@@ -38,11 +40,10 @@ jobs:
   deploy-dev:
     # The type of runner that the job will run on
     # Steps represent a sequence of tasks that will be executed as part of the job
+    runs-on: ubuntu-latest
+
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-        if: (github.event.inputs.deploy_environment == 'Develop') && (github.ref == 'refs/heads/develop')
-        runs-on: ubuntu-latest
-
       - name: Run a one-line script
         run: echo Hello, from Develop!
