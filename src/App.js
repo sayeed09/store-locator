@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Loader } from "google-maps";
 import { locations } from "./locations";
 let google, map, infoWindow;
+
 function App() {
   useEffect(() => {
     initMap();
