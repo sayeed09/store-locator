@@ -16,7 +16,7 @@ on:
       service:
         description: Name of the service to deploy
         required: true
-         type: choice
+        type: choice
         options: 
         - App 
         - Shopify-Web
