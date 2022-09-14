@@ -9,18 +9,18 @@ on:
         description: Select Environment
         required: true
         type: choice
-        options: 
-        - Develop
-        - Preprod
-        - Production
+        options:
+          - Develop
+          - Preprod
+          - Production
       service:
         description: Name of the service to deploy
         required: true
         type: choice
-        options: 
-        - App 
-        - Shopify-Web
-        - Checkout
+        options:
+          - App
+          - Shopify-Web
+          - Checkout
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -35,8 +35,7 @@ jobs:
         if: (github.event.inputs.deploy_environment == 'Preprod') && (github.ref == 'refs/heads/preprod')
         run: echo Hello, world!
 
-
-deploy-dev:
+  deploy-dev:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
